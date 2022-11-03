@@ -4,7 +4,9 @@ import yaml
 from . import db
 from .models import Post
 
-TITLES = [{'title': 'a', 'preview': 'aPREVIEW'}, {'title': 'b'}, {'title': 'c'}]
+TITLES = [{'title': 'a', 'preview': 'aPREVIEW'},
+          {'title': 'b'}, {'title': 'c'}]
+
 
 def read_body(root, name):
   body_path = os.path.join(root, name, 'body.md')
@@ -13,6 +15,7 @@ def read_body(root, name):
     body = body.decode('UTF-8')
   return body
 
+
 def read_config(root, name):
   config_path = os.path.join(root, name, 'config.yaml')
   with open(config_path, 'rb') as config_file:
@@ -20,8 +23,9 @@ def read_config(root, name):
     config['slug'] = name
     return config
 
+
 def seed_db(app):
-  ## Dev?
+  # Dev?
   with app.app_context():
     db.drop_all()
     db.create_all()
@@ -40,5 +44,3 @@ def seed_db(app):
     posts = [Post(**config) for config in configs]
     db.session.add_all(posts)
     db.session.commit()
-
-

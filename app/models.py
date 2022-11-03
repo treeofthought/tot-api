@@ -12,19 +12,20 @@ class Post(db.Model):
 
   def to_json(self):
     out = {
-      'title': self.title,
-      'body': self.body
+        'title': self.title,
+        'body': self.body
     }
     return out
 
-  def to_summary_json(self):
+  # def to_summary_json(self):
     out = {
         'title': self.title,
         'preview': self.preview,
         'date': self.date.strftime('%b %d, %Y'),
         'blogSlug': self.slug
-      }
-    return out
+    }
+
+  #   return out
 
   @staticmethod
   def list_json():

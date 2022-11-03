@@ -6,3 +6,5 @@ exclude =
 ignore =
   # Allow indents that are not multiple of four
   E111
+  # Allow indents that are not multiple of four in comments
+  E114

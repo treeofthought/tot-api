@@ -9,20 +9,24 @@ from app.models import Post
 app = create_app(os.getenv('FLASK_CONFIG') or 'default')
 migrate = Migrate(app, db)
 
+
 @app.route('/blog-list')
 def blog_list():
   """List all posts"""
   return jsonify(Post.list_json())
+
 
 @app.route('/blog-latest')
 def blog_latest():
   """List most recent blog post"""
   return jsonify(Post.most_recent_json())
 
+
 @app.route('/blogs/<slug>')
 def blogs(slug):
   p = Post.query.filter_by(slug=slug).first()
   return p.to_json()
+
 
 @app.shell_context_processor
 def make_shell_context():
