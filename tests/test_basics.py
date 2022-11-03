@@ -1,15 +1,30 @@
 import unittest
 from flask import current_app
-from app import create_app, db, TITLES
+from app import create_app, db
 from app.models import Post
 
 
 class BasicsTestCase(unittest.TestCase):
   def setUp(self):
-    db.create_all()
     self.app = create_app('testing')
     self.app_context = self.app.app_context()
     self.app_context.push()
+    db.create_all()
+
+    self.posts = [{
+                'title' : 'Test1',
+                'slug' : 'test1',
+                'preview' : 'Test 1 preview',
+                'body' : 'Test 1 body',
+                'date' : '2021-01-01'
+              },
+              {
+                'title' : 'Test2',
+                'slug' : 'test2',
+                'preview' : 'Test 2 preview',
+                'body' : 'Test 2 body',
+                'date' : '2021-01-02'
+              }]
 
   def tearDown(self):
     db.session.remove()
@@ -21,11 +36,3 @@ class BasicsTestCase(unittest.TestCase):
 
   def test_app_is_testing(self):
     self.assertTrue(current_app.config['TESTING'])
-
-  def test_app_has_seeded(self):
-    posts = Post.query.all()
-    self.assertEqual(len(posts), len(TITLES))
-
-    expected_title_set = set(TITLES)
-    actual_title_set = set([post.title for post in posts])
-    self.assertEqual(expected_title_set, actual_title_set)

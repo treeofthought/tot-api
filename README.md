@@ -14,8 +14,10 @@ launch interactive shell
 run linting
 
 ## TODO
-* Database model for blogs
-* Script to upload blogs
+* Better handling of images...
+  * Move them from seed files to static during DB seed
+  * Make the prefix which must be added to image urls a configurable variable
 * Paginate route for accessing blog list
-* Route for accessing blog detail 
 * Document routes
+* Secure CORS implementation so API only talks to front end
+* DB Model and endpoints for "top tens" 

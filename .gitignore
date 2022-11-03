@@ -2,6 +2,7 @@ __pycache__/
 .flaskenv
 .DS_Store
 venv/
+posts/
 
 # SQLite databases
 *.sqlite
