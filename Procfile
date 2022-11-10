@@ -1,1 +1,1 @@
-web: gunicorn tot-api:app
+web: flask db ugprade; gunicorn tot-api:app
