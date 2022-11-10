@@ -17,7 +17,7 @@ class Post(db.Model):
     }
     return out
 
-  # def to_summary_json(self):
+  def to_summary_json(self):
     out = {
         'title': self.title,
         'preview': self.preview,
@@ -25,7 +25,7 @@ class Post(db.Model):
         'blogSlug': self.slug
     }
 
-  #   return out
+    return out
 
   @staticmethod
   def list_json():
