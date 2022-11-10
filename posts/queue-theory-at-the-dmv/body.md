@@ -30,7 +30,7 @@ Fortunately for my sanity (and more importantly, my ongoing employment), the pac
 
 One way to visualize the situation is to look at how my predicted departure time evolved throughout my wait. I’ll also add a horizontal bar showing what wound up being my true departure time.
 
-![Predicted departures over time](http://127.0.0.1:5001/static/letting-go-queue-theory-at-the-dmv/naive-predictions.png)
+![Predicted departures over time]({IMG_ROOT}/letting-go-queue-theory-at-the-dmv/naive-predictions.png)
 
 By 10:45 I was reasonably sure I’d be out of there around 1:15. At 11:45, Lady Luck decided to stop toying with me and my estimates marched steadily downward until they collided with reality, right at 12:21.
 
@@ -38,7 +38,7 @@ Spending most of the day being off by about an hour in my estimate isn’t great
 
 The first step to improving a model is understanding why it behaves as it does. Towards this end, let’s visualize the raw data. What numbers were called when?
 
-![When were which numbers called?](http://127.0.0.1:5001/static/letting-go-queue-theory-at-the-dmv/numbers-called.png)
+![When were which numbers called?]({IMG_ROOT}/letting-go-queue-theory-at-the-dmv/numbers-called.png)
 
 This plot confirms that the rate picked up around 11:45. (Notice how the steps come quicker, making the right-most portion of the curve look more steep than the rest.)
 
@@ -49,7 +49,7 @@ To understand how wait time evolved throughout the day, let’s look at how much
 1. Simply average every wait time so-far observed. Call this the "Naive Average"
 2. Average only the eight most recent data points. More snobbily, we call this "a one-sided simple rolling average with window size eight"
 
-![Estimates of wait time over time](http://127.0.0.1:5001/static/letting-go-queue-theory-at-the-dmv/prediction-comparison.png)
+![Estimates of wait time over time]({IMG_ROOT}/letting-go-queue-theory-at-the-dmv/prediction-comparison.png)
 
 Some interesting observations from this plot!
 
@@ -57,7 +57,7 @@ Some interesting observations from this plot!
 2. The estimators are in close agreement until 11:45. Basically, until 11:45, the true average wait time does seem to have been reasonably constant. Note that the rolling average is jumpier though.
 3. At 11:45, the 8 datapoint rolling average adjusts to the acceleration almost immediately, whereas the naive average trends sluggishly downwards. Let’s see what impact this has on prediction quality:
 
-![Prediction quality by predictor type](http://127.0.0.1:5001/static/letting-go-queue-theory-at-the-dmv/prediction-comparison-full.png)
+![Prediction quality by predictor type]({IMG_ROOT}/letting-go-queue-theory-at-the-dmv/prediction-comparison-full.png)
 
 Much better! The rolling average "forgets" about that first major outlier, and so starts out more optimistic than the naive estimator. Longer wait times pull it back to basically agree with the naive estimator, but it learns from the 11:45 acceleration, and so it hones in on the true departure about 40 minutes sooner than the naive estimator.
 

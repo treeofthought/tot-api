@@ -8,13 +8,13 @@ Is it possible to pin down the "true" halfway point?
 
 One way to model this situation is the harmonic series. Let your first year count as one subjective year. The second year would be half your life experience, so it would seem to take half as long as the first subjective year. After your third year, you have the three to compare it to, so that year accounts of one third of your life experience, and so on. After n years then, you've subjectively lived:
 
-![Harmonic series model of subjective time](http://127.0.0.1:5000/static/subjective-time/harmonic-series.png)
+![Harmonic series model of subjective time]({IMG_ROOT}/subjective-time/harmonic-series.png)
 
 There's a few flaws with this model.  For one thing, there's nothing special about the year boundary.  This is happening on the scale of days, or seconds.  We could adjust the formula accordingly by taking smaller and smaller slices.  Push this idea, and we'll accidentally invent differential calculus.
 
 To model it continuously then, a simple differential equation:
 
-![Simple differential equation for subjective time](http://127.0.0.1:5000/static/subjective-time/diff-eq.png)
+![Simple differential equation for subjective time]({IMG_ROOT}/subjective-time/diff-eq.png)
 
 What this formula says is "the subjective length of each new instant is diluted proportional to the amount of time you've been alive up to that instant"
 
@@ -38,7 +38,7 @@ This also sheds some light on why parents are saying their children "grow up so 
 
 Here's a visualization that shows how much of your life you've lived at each age, measured both by this subjective proportional formula, and also the objective way of current age / max age.
 
-![Conversion between obejctive and subjective time curve](http://127.0.0.1:5000/static/subjective-time/line-chart.png)
+![Conversion between obejctive and subjective time curve]({IMG_ROOT}/subjective-time/line-chart.png)
 
 There's a pleasing symmetry to the quartiles.  Ages 5-10 seem to take a 25% of you life, ages 10-20 the next 25%, 20-40 the third 25%, and 40-80 the final portion.
 
@@ -48,21 +48,21 @@ The last forty years of your life will blink by as quickly as it took you to tur
 
 Recall the differential equation
 
-![The differential equation from before](http://127.0.0.1:5000/static/subjective-time/diff-eq.png)
+![The differential equation from before]({IMG_ROOT}/subjective-time/diff-eq.png)
 
 We can integrate with separation of variables to get
 
-![Differential solved via separation of variables](http://127.0.0.1:5000/static/subjective-time/antiderivative.png)
+![Differential solved via separation of variables]({IMG_ROOT}/subjective-time/antiderivative.png)
 
 Logarithms do strange things to units, so we need a dimensionless quantity inside our logarithm.
 
 If you buy my "time starts at T=5 years" argument, our formula is
 
-![Specific solution given my boundary condition](http://127.0.0.1:5000/static/subjective-time/definite-integral.png)
+![Specific solution given my boundary condition]({IMG_ROOT}/subjective-time/definite-integral.png)
 
 Logarithm rules let us rewrite this as
 
-![An algebraic re-expression of the above image](http://127.0.0.1:5000/static/subjective-time/solution.png)
+![An algebraic re-expression of the above image]({IMG_ROOT}/subjective-time/solution.png)
 
 Since T has units "years" and 5 has units "years," we are taking the logarithm of a dimensionless quantity, and we are saved.  A consequence is that the value we get for "S" has no interpretation by itself, but we can interpret ratios involving it.
 
@@ -70,15 +70,15 @@ It's easy now to reconstruct the calculations I did to make the points in the ar
 
 Length of childhood is ln(18/5) = 1.281.  To find the age after 18 where we've lived the same amount of time, we seek x such that
 
-![Solution constraint to childhood equation](http://127.0.0.1:5000/static/subjective-time/childhood-equation.png)
+![Solution constraint to childhood equation]({IMG_ROOT}/subjective-time/childhood-equation.png)
 
 Pleasingly, we just need the logarithm arguments to be equal, and so the solution is quite simply
 
-![Solution constraint to childhood equation](http://127.0.0.1:5000/static/subjective-time/childhood-solution.png)
+![Solution constraint to childhood equation]({IMG_ROOT}/subjective-time/childhood-solution.png)
 
 To find the halfway point of subjective life, we need to solve the equation
 
-![Halfway equation](http://127.0.0.1:5000/static/subjective-time/halfway-equation.png)
+![Halfway equation]({IMG_ROOT}/subjective-time/halfway-equation.png)
 
 Which works out to x = 20 years.
 
