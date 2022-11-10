@@ -10,11 +10,11 @@ In this case, kaggle makes a bunch of helpful March Madness data available, robb
 
 All I had to do was subtract the number of points scored by the sixteen-seed from the number scored by the one-seed in all previous match-ups, and look for patterns in this metric over time. A good place to start with this sort of analysis is a scatterplot:
 
-![The initial scatterplot](http://127.0.0.1:5000/static/march-math-madness/scatter.png)
+![The initial scatterplot]({IMG_ROOT}/march-math-madness/scatter.png)
 
 I definitely don’t see a clear trend, but we’re only just getting started. Let’s add a LOESS smoother:
 
-![The initial scatterplot with smooter](http://127.0.0.1:5000/static/march-math-madness/scatter-loess.png)
+![The initial scatterplot with smooter]({IMG_ROOT}/march-math-madness/scatter-loess.png)
 
 Looks like there is an upward trend through 1996, then victory margins are flat or shrinking ever since. It wasn’t quite clear before the smoother, but now I see the pattern. It looks like the closest sixteen-seeds ever came was the late 80’s, but since then they rarely come within 10 points. There also were more big blowouts in the late nineties and early aughts.
 
@@ -22,7 +22,7 @@ Given the strong evidence of an upward trend from ’85 to ’96, we can safely 
 
 While I’m at it, I’m going to replace the LOESS smoother with a linear one, because it will make the size of any observed effect easier to quantify:
 
-![The initial scatterplot with linear smoother](http://127.0.0.1:5000/static/march-math-madness/margin-regressed.png)
+![The initial scatterplot with linear smoother]({IMG_ROOT}/march-math-madness/margin-regressed.png)
 
 Well, look at that! A nice, negative slope.
 
@@ -38,7 +38,7 @@ The idea is that either this data is essentially flat over time, or else time af
 
 This was the result:
 
-![Histogram of slopes](http://127.0.0.1:5000/static/march-math-madness/permutation.png)
+![Histogram of slopes]({IMG_ROOT}/march-math-madness/permutation.png)
 
 The fact that our observation is so far left, and so few of the permutation slopes are further left, is strong evidence that our observed slope value is not just random chance. I would therefore assert with some confidence that since 1997, sixteen-seeds are getting closer to beating one-seeds.
 
