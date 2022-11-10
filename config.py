@@ -16,7 +16,9 @@ class TestingConfig(Config):
   TESTING = True
 
 class HerokuConfig(Config):
-  SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+  heroku_db_url = os.environ.get('DATABASE_URL')
+  sqlalchemy_support = heroku_db_url.replace('postgres://', 'postgresql://')
+  SQLALCHEMY_DATABASE_URI = sqlalchemy_support
 
 config = {
     'default': Config,
