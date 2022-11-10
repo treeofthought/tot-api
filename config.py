@@ -15,10 +15,13 @@ class Config:
 class TestingConfig(Config):
   TESTING = True
 
+class HerokuConfig(Config):
+  SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
 
 config = {
     'default': Config,
     'development': Config,
     'production': Config,
-    'testing': TestingConfig
+    'testing': TestingConfig,
+    'heroku': HerokuConfig
 }

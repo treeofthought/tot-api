@@ -2,12 +2,17 @@ import os
 from flask import jsonify
 from flask_migrate import Migrate
 
-from app import create_app, db, seed_db
+from app import create_app, db#, seed_db
 from app.models import Post
 
 
 app = create_app(os.getenv('FLASK_CONFIG') or 'default')
 migrate = Migrate(app, db)
+
+@app.route('/')
+def index():
+  """List all posts"""
+  return jsonify('success')
 
 
 @app.route('/blog-list')
