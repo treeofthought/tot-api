@@ -1,6 +1,8 @@
 import os
 import yaml
 
+from flask import current_app
+
 from . import db
 from .models import Post
 
@@ -13,6 +15,7 @@ def read_body(root, name):
   with open(body_path, 'rb') as post_file:
     body = post_file.read()
     body = body.decode('UTF-8')
+    body = body.format(IMG_ROOT=current_app.config['IMG_ROOT'])
   return body
 
 
